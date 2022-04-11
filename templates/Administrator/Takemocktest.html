@@ -1,0 +1,104 @@
+{% extends 'user/user_base.html' %} {% load static %} {% block body %}
+  <div style="text-align: center;"><h4 style="position: relative;">Select a platform click on start to take the exam</h4></div>
+  <hr style="position: relative;top: 50px;">
+  <p style="margin-left: 10%;position: relative;top: 50px;"></p>
+  {% if messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+    <center>{{message}}</center>
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4" style="margin-left: 25%; margin-right: 20%;">
+
+              <!--Title-->
+
+   <section class="pr-1">
+
+                <!-- Material form register -->
+       <div style="text-align: center;">
+                <div class="card" style="top: 80px;">
+
+
+
+                  </h5>
+
+                  <!--Card content-->
+                  <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form action={% url 'takemocktest' %} method="post" onsubmit="return myfun()" style="color: #757575;">
+                        {% csrf_token %}
+
+                      <div class="form-row">
+                        <div class="col">
+                          <!-- First name -->
+                          <br>
+
+
+                   <select class="form-select" name="selectplatform" aria-label="Default select example" style="width: 160px;margin-left: 30%;position: relative;
+    bottom: px;">
+                                        {% for i in platformname %}
+                                            <option value="{{ i.platformname }}">{{ i.platformname }}</option>
+                                        {% endfor %}
+                   </select>
+                      <!-- Password -->
+
+                      <!-- Phone number -->
+
+
+                      <!-- Sign up button -->
+                    <div style="text-align: center;"><button class="btn btn-secondary cancel" type="reset"  style="width:80px;background: #B2C1C2;margin-left: vh;margin-top:5%;margin-bottom: 2%;border-radius: 16px;position: relative;bottom: 40px;top: 10px;" >Cancel</button>
+                    <button class="btn btn-secondary update" type="submit" style="width:80px;
+
+    background: #66F0F5;
+
+    margin-left: 10px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    border-radius: 16px;
+    position: relative;
+    bottom: 40px;
+    top: 10px;
+    ">Start</button></div>
+                      <!-- Social register -->
+                    </form>
+                  </div>
+                </div>
+       </div>
+
+
+
+                      </section><br>
+              <!--Section: Live preview-->
+
+
+
+
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </section>
+
+  </div>
+
+
+<script>
+
+    $(document).ready(function() {
+         function disablePrev() { window.history.forward() }
+         window.onload = disablePrev();
+         window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+      });
+</script>
+
+</body>
+</html>
+{% endblock %}

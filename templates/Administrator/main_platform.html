@@ -1,0 +1,204 @@
+ {% extends 'Administrator/adm_base.html' %}{% load static %}
+{% block body %}
+
+<head>
+
+    <style>
+        .welcome {
+            width: 85%;
+            background: #FFFFFF;
+            border-radius: 2rem;
+        }
+        
+        .break-all {
+            word-break: break-all;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .lgcards {
+                display: none !important;
+            }
+            hr {
+                width: 48vw !important;
+            }
+            h5 {
+                margin-left: 10px;
+                width: 90px;
+            }
+            .editp {
+                margin-left: 5vw !important;
+            }
+            .addp {
+                margin-left: 40% !important;
+            }
+            .par3 {
+                width: 90% !important;
+            }
+        }
+        
+        @media screen and (max-width: 440px) {
+            .plpic {
+                width: 27vw;
+                height: 27vw;
+            }
+        }
+        
+        @media screen and (max-width: 400px) {
+            .plpic {
+                width: 20vw;
+                height: 20vw;
+            }
+        }
+        
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            .par3 {
+                width: 450px !important;
+            }
+        }
+        
+        @media screen and (min-width: 992px) {
+            .smcards {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+
+<div class="page-breadcrumb">
+    <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Platforms</h4>
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div style="margin-bottom: 1%;">
+    <a href="{% url 'platform' %}">
+        <ul class="list-inline two-part d-flex align-items-center mb-4 mb-lg-0">
+            <li class="addp" style="margin-left: 70%; color: rgb(0, 68, 255);"> Add new platform</li>
+            <li style="margin-left: 1%;"> <img src="{% static 'plugins/images/Group-44.png' %}" alt="" width=" 16px"></li>
+        </ul>
+    </a>
+</div <div class="row">
+<!-- Column -->
+<div class="col-lg-10 col-xlg-3 col-md-12 lgcards">
+    {% for x in plat %}
+    <div class="white-box" style="background: #FFFFFF; width: 100%;border-radius: 2rem; margin-left: 5%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px">
+
+        <table>
+            <tr>
+                <td>
+                    <img src="{{ x.uploadthumbnail.url }}" alt="Platforms" width="150px" height="150px">
+
+
+                </td>
+                <td>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li style="margin-left: 5%; color: rgb(0, 68, 255);">
+                            <h5>{{ x.platformname }}</h5>
+                        </li>
+
+                        <a href="{% url 'editplatform' x.id %}">
+                            <img src="{% static 'plugins/images/Icon-awesome-pencil-alt.png' %}" alt="Platforms" width="17px" style="margin-left: 13cm;">
+                        </a>
+
+                        <!--   <a href="editplatform/" <li style="margin-left: 30%;"><img src="{% static 'plugins/images/Icon material-delete.png' %}" alt="Platforms" width="15px"></li></a> -->
+                        <!--  <a href="deleteplatform/{{ x.id }}" <li style="margin-left: 35%;"><img src="{% static 'plugins/images/Icon material-delete.png' %}" alt="Platforms" width="16px"></li></a> -->
+                        <a href="{% url 'deleteplatform' x.id %}">
+                            <img src="{% static 'plugins/images/Icon-material-delete.png' %}" alt="Platforms" width="16px" style="margin-left: 35px;">
+                        </a>
+                    </ul>
+                    <hr style="margin-left: 5%; margin-right: 5%;">
+                    <div class="break-all">
+                        <p style="margin-left: 5%;margin-top: 1%;margin-right: 5%;text-align: justify;">{{ x.description }}</p>
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    {% endfor %}
+</div>
+<!-- Column -->
+
+</div>
+
+
+</div>
+
+<div class="smcards">
+    <div class="container">
+        <div class="row">
+            {% for x in plat %}
+            <div class="col-12">
+                <div class="card" style="background: #FFFFFF; width: 100%;border-radius: 2rem; box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px">
+                    <div class="card-body">
+
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <img class="plpic" src="{{ x.uploadthumbnail.url }}" alt="Platforms" width="150px" height="150px">
+
+
+                                </td>
+                                <td>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li style="margin-left: 5%; color: rgb(0, 68, 255);">
+                                            <h5>{{ x.platformname }}</h5>
+                                        </li>
+
+                                        <a href="{% url 'editplatform' x.id %}">
+                                            <img class="editp" src="{% static 'plugins/images/Icon-awesome-pencil-alt.png' %}" alt="Platforms" width="17px" style="margin-left: 13cm;">
+                                        </a>
+
+                                        <!--   <a href="editplatform/" <li style="margin-left: 30%;"><img src="{% static 'plugins/images/Icon material-delete.png' %}" alt="Platforms" width="15px"></li></a> -->
+                                        <!--  <a href="deleteplatform/{{ x.id }}" <li style="margin-left: 35%;"><img src="{% static 'plugins/images/Icon material-delete.png' %}" alt="Platforms" width="16px"></li></a> -->
+                                        <a href="{% url 'deleteplatform' x.id %}">
+                                            <img src="{% static 'plugins/images/Icon-material-delete.png' %}" alt="Platforms" width="16px" style="margin-left: 35px;">
+                                        </a>
+                                    </ul>
+                                    <hr style="margin-left: 5%; margin-right: 5%;">
+                                    <div class="break-all">
+                                        <p class="par3" style="margin-left: 5%;margin-top: 1%;margin-right: 5%;text-align: justify;">{{ x.description }}</p>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{% static 'plugins/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/app-style-switcher.js' %}"></script>
+<script src="{% static 'plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+<!--Wave Effects -->
+<script src="{% static 'js/waves.js' %}"></script>
+<!--Menu sidebar -->
+<script src="{% static 'js/sidebarmenu.js' %}"></script>
+<!--Custom JavaScript -->
+<script src="{% static 'js/custom.js' %}"></script>
+<!--This page JavaScript -->
+<!--chartis chart-->
+</div>
+
+{% endblock body %}
