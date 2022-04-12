@@ -137,10 +137,10 @@ def viewprojects(request):
     return render(request, 'Administrator/view projects.html')
 
 #display projects platform name
-def viewprojectdetail(request, id):
-    plat = Addnewplatform.objects.filter(id=id)
-    project = add_new_ieee.objects.filter(id=id)
-    context = {'plat': plat, 'project': project}
+def viewprojectdetail(request):
+    plat = Addnewplatform.objects.all()
+    # project = add_new_ieee.objects.filter(id=id)
+    context = {'plat': plat, }
     return render(request, 'Administrator/view_projects_detail.html', context)
 
 #home page display

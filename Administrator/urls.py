@@ -50,7 +50,7 @@ urlpatterns = [
     re_path(r'^viewprojects$', views.viewprojects, name='viewprojects'),
 
     #display platform 
-    re_path(r'^viewprojectdetail/(?P<id>\d+)$', views.viewprojectdetail, name='viewprojectdetail'),
+    re_path(r'^viewprojectdetail$', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
     re_path(r'^$',views.userdashboard, name='userdashboard'),

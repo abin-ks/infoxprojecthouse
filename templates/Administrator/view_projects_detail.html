@@ -59,7 +59,7 @@
 
 
                             <li style="margin-top: 1rem;margin-bottom: 1rem;">
-                                <span class="font-medium" style="margin-left: 0%; color: rgba(0,132,255,0.85);">{{ x.selectplatform }}</span>
+                                <span class="font-medium" style="margin-left: 0%; color: rgba(6, 36, 63, 0.85);">{{ x.projectname }}</span>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         <a href="{% url 'deleteprojects' x.id  %}">
@@ -73,11 +73,11 @@
                     <ul class="list-inline two-part d-flex align-items-center mb-0">
                         <li style="margin-left: 1rem; margin-right: 1rem;">
                             <p style="text-align: justify;"></p>
-                            
+
                             <div class="break-all">
-                                {{ x.title }}
+                                {{ x.shortdescription }}
                             </div>
-                           
+
                         </li>
                     </ul>
                     </li>
