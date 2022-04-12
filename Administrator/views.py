@@ -138,10 +138,28 @@ def viewprojects(request):
 
 #display projects platform name
 def viewprojectdetail(request, id):
-    plat = Addnewplatform.objects.filter(id=id)
-    project = add_new_ieee.objects.filter(id=id)
+    plat = Addnewplatform.objects.all()
+    project = add_new_ieee.objects.all()
     context = {'plat': plat, 'project': project}
     return render(request, 'Administrator/view_projects_detail.html', context)
+
+def viewieeedetail(request, id):
+    plat = Addnewplatform.objects.all()
+    project = add_new_ieee.objects.all()
+    context = {'plat': plat, 'project': project}
+    return render(request, 'Administrator/viewieeedetail.html', context)
+
+def viewprojectdetails(request):
+    plat = Addnewplatform.objects.all()
+    project = addnewproject.objects.all()
+    context = {'plat': plat, 'project': project}
+    return render(request, 'Administrator/view_projects_detail.html', context)
+
+def viewieeedetails(request):
+    plat = Addnewplatform.objects.all()
+    project = add_new_ieee.objects.all()
+    context = {'plat': plat, 'project': project}
+    return render(request, 'Administrator/viewieeedetails.html', context)
 
 #home page display
 def userdashboard(request):
@@ -468,11 +486,6 @@ def user_show_ieeeproject(request):
     return render(request, 'user/user_show_ieeeproject.html', {'spo': spro})
 
 def req_ieee(request):
-    # if 'admin' in request.session:
-    #     req1 =  user_req_ieee_projects.objects.all()
-    #     return render(request, 'Administrator/req_ieeeproject.html', {'req': req1})
-    # else:
-    #     return redirect('admin_login')
     return render(request, 'Administrator/req_ieeeproject.html')
 
 def main_ieee(request):

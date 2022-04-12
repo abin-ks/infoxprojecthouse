@@ -51,6 +51,9 @@ urlpatterns = [
 
     #display platform 
     re_path(r'^viewprojectdetail/(?P<id>\d+)$', views.viewprojectdetail, name='viewprojectdetail'),
+    re_path(r'^viewieeedetail/(?P<id>\d+)$', views.viewieeedetail, name='viewieeedetail'),
+    re_path(r'^viewprojectdetails$', views.viewprojectdetails, name='viewprojectdetails'),
+    re_path(r'^viewieeedetails$', views.viewieeedetails, name='viewieeedetails'),
 
     #Home Page
     re_path(r'^$',views.userdashboard, name='userdashboard'),
